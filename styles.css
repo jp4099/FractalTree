@@ -1,7 +1,7 @@
 body {
-    background-color: rgb(200,200,200);
-    color: rgb(0,0,0);
-    font-family: "Open Sans", sans-serif;
+    background-image: url('https://i.pinimg.com/originals/d2/ff/25/d2ff250fd63586aa9b47edefa023c819.jpg'); background-size:cover;
+    color: rgb(255, 255, 255);
+    font-family: Verdana,Geneva,'Bitstream Vera Sans','DejaVu Sans',sans-serif;
     text-align: center;
 }
 
@@ -16,6 +16,7 @@ header {
 }
 
 footer {
-	font-style: italic;
-	font-size: 90%;
+	font-style: bold;
+	font-size: 100%;
+	color: rgb(255, 255, 255);
 }
