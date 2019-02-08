@@ -3,9 +3,11 @@ private int smallestBranch = 10;
 private double branchAngle = .2;  
 private int moveX = 10;
 private int moveY = 10;
-private int paint = (int)(Math.random()*100)+60;
+private int paint = (int)(Math.random()*100)+20;
 private int swoosh = 1;
 private int x1;
+private PImage webImg = loadImage("https://anthrome.files.wordpress.com/2012/08/img_3317.jpg");
+private PImage birdImg = loadImage("https://www.pngkey.com/png/full/396-3963000_spread-your-wings-birds-flying-in-the-sky.png");
 
 public void setup() 
 {   
@@ -13,11 +15,13 @@ public void setup()
 } 
 public void draw() 
 {   
-  background(158, 232, 245);   
+  sunset();
+  birds();
   strokeWeight(2);
   stroke(paint);
   line(300, 600, 300, 400);   
   drawBranches(300, 400, 120, 3*Math.PI/2);
+  ground();
   for (int i = 0; i < 20; i++)
   {
     grass();
@@ -27,6 +31,17 @@ public void draw()
   cloudTwo();
   cloudThree();
 } 
+
+public void sunset()
+{
+  image(webImg, 0, 0, 600, 600);
+}
+
+public void birds()
+{
+  image(birdImg, 20, 0, 300, 150);
+  image(birdImg, 300, 200, 300, 100);
+}
 
 public void drawBranches(int x, int y, double branchLength, double angle) 
 {   
@@ -63,7 +78,7 @@ public void cloudOne()
   if (moveX > 599) {
     moveX = 0;
   }
-  
+
   if (moveY < 35) {
     moveY = moveY + 2;
   }
@@ -107,4 +122,10 @@ public void grass()
   {
     swoosh = swoosh * -1;
   }
+}
+
+public void ground()
+{
+  fill(77, 27, 27);
+  rect(0, 500, 600, 300, 15);
 }
