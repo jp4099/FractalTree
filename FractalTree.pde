@@ -89,8 +89,8 @@ public void grass()
   stroke(105, 160, 47);
 
   for (int next = 0; next < 600; next++){
-    line(0 + next, 600, 10 + next + x1, 500); 
-    next = next + 2;
+    line(0 + next, 600, 0 + next + x1, 500); 
+    next = next + 20;
   }
 
     x1 = x1 + swoosh; 
