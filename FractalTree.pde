@@ -1,8 +1,10 @@
-private double fractionLength = .8; 
+private double fractionLength = .8;
 private int smallestBranch = 10; 
 private double branchAngle = .2;  
 private int move = 10;
 private int paint = (int)(Math.random()*100)+60;
+private int swoosh = 1;
+private int x1;
 
 public void setup() 
 {   
@@ -11,9 +13,14 @@ public void setup()
 public void draw() 
 {   
   background(158, 232, 245);   
+  strokeWeight(2);
   stroke(paint);
   line(300, 600, 300, 400);   
   drawBranches(300, 400, 120, 3*Math.PI/2);
+  for (int i = 0; i < 20; i++)
+  {
+    grass();
+  }
 
   cloudOne();
   cloudTwo();
@@ -77,10 +84,18 @@ public void cloudThree()
   ellipse(490 + move, 70, 100, 50);
 }
 
-/*
 public void grass()
-{
+{ 
   stroke(105, 160, 47);
-  line(10, 600, 10, 550);
+
+  for (int next = 0; next < 600; next++){
+    line(0 + next, 600, 10 + next + x1, 500); 
+    next = next + 2;
+  }
+
+    x1 = x1 + swoosh; 
+    if (x1 > 20 || x1 < -20) 
+  {
+    swoosh = swoosh * -1;
+  }
 }
-*/
