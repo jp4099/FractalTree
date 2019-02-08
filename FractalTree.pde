@@ -2,7 +2,7 @@ private double fractionLength = .8;
 private int smallestBranch = 10; 
 private double branchAngle = .2;  
 private int move = 10;
-private int paint = (int)(Math.random()*100)+70;
+private int paint = (int)(Math.random()*100)+60;
 
 public void setup() 
 {   
@@ -12,13 +12,14 @@ public void draw()
 {   
   background(158, 232, 245);   
   stroke(paint);
-  line(300, 600, 300, 380);   
+  line(300, 600, 300, 400);   
   drawBranches(300, 400, 120, 3*Math.PI/2);
 
   cloudOne();
   cloudTwo();
   cloudThree();
 } 
+
 public void drawBranches(int x, int y, double branchLength, double angle) 
 {   
   double angle1 = angle + branchAngle;
@@ -76,7 +77,10 @@ public void cloudThree()
   ellipse(490 + move, 70, 100, 50);
 }
 
+/*
 public void grass()
 {
- //do eet later ig 
+  stroke(105, 160, 47);
+  line(10, 600, 10, 550);
 }
+*/
