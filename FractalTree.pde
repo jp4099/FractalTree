@@ -1,7 +1,8 @@
 private double fractionLength = .8;
 private int smallestBranch = 10; 
 private double branchAngle = .2;  
-private int move = 10;
+private int moveX = 10;
+private int moveY = 10;
 private int paint = (int)(Math.random()*100)+60;
 private int swoosh = 1;
 private int x1;
@@ -51,16 +52,23 @@ public void cloudOne()
 {
   noStroke();
   fill(255, 255, 255, 150);
-  ellipse(70 + move, 50, 100, 50);
-  ellipse(100 + move, 40, 100, 50);
-  ellipse(125 + move, 50, 100, 50);
-  ellipse(90 + move, 70, 100, 50);
+  ellipse(70 + moveX, 50 + moveY, 100, 50);
+  ellipse(100 + moveX, 40 + moveY, 100, 50);
+  ellipse(125 + moveX, 50 + moveY, 100, 50);
+  ellipse(90 + moveX, 70 + moveY, 100, 50);
 
-  if (move < 600) {
-    move = move + 2;
+  if (moveX < 600) {
+    moveX = moveX + 2;
   }
-  if (move > 599) {
-    move = 0;
+  if (moveX > 599) {
+    moveX = 0;
+  }
+  
+  if (moveY < 35) {
+    moveY = moveY + 2;
+  }
+  if (moveY > 34) {
+    moveY = 0;
   }
 }
 
@@ -68,33 +76,34 @@ public void cloudTwo()
 {
   noStroke();
   fill(255, 255, 255, 150);
-  ellipse(270 + move, 100, 100, 50);
-  ellipse(320 + move, 90, 100, 50);
-  ellipse(325 + move, 100, 100, 50);
-  ellipse(290 + move, 120, 100, 50);
+  ellipse(270 + moveX, 100 + moveY, 100, 50);
+  ellipse(320 + moveX, 90 + moveY, 100, 50);
+  ellipse(325 + moveX, 100 + moveY, 100, 50);
+  ellipse(290 + moveX, 120 + moveY, 100, 50);
 }
 
 public void cloudThree()
 {
   noStroke();
   fill(255, 255, 255, 150);
-  ellipse(470 + move, 50, 100, 50);
-  ellipse(500 + move, 40, 100, 50);
-  ellipse(525 + move, 50, 100, 50);
-  ellipse(490 + move, 70, 100, 50);
+  ellipse(470 + moveX, 50 + moveY, 100, 50);
+  ellipse(500 + moveX, 40 + moveY, 100, 50);
+  ellipse(525 + moveX, 50 + moveY, 100, 50);
+  ellipse(490 + moveX, 70 + moveY, 100, 50);
 }
 
 public void grass()
 { 
   stroke(105, 160, 47);
-
-  for (int next = 0; next < 600; next++){
-    line(0 + next, 600, 0 + next + x1, 500); 
-    next = next + 20;
+  frameRate(10);
+  strokeWeight(1);
+  for (int next = 0; next < 660; next++) {
+    line(next, 600, next + x1, (int)(Math.random()*10) + 450); 
+    next = next + 7;
   }
 
-    x1 = x1 + swoosh; 
-    if (x1 > 20 || x1 < -20) 
+  x1 = x1 + swoosh; 
+  if (x1 > 7 || x1 < -7) 
   {
     swoosh = swoosh * -1;
   }
